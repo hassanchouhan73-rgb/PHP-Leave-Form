@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PHP Leave Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: #eef2f7;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .form-container {
+            max-width: 650px;
+            margin: 50px auto;
+            background: #ffffff;
+            padding: 35px 40px;
+            border-radius: 12px;
+            border: 1px solid #e1e5eb;
+        }
+
+        /* Logo Row */
+        .logo-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .logo-row img {
+            width: 90px;
+            height: auto;
+        }
+
+        @media (max-width: 600px) {
+            .logo-row img {
+                width: 60px;
+            }
+        }
+
+        .logo-img {
+    width: 90px;
+    height: auto;
+}
+
+@media(max-width: 600px) {
+    .logo-img {
+        width: 60px;
+    }
+    .title {
+        font-size: 20px;
+    }
+}
+        .title {
+            text-align: center;
+            font-weight: 700;
+            font-size: 26px;
+            color: #0d6efd;
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-control, .form-select {
+            border-radius: 8px;
+            padding: 10px;
+        }
+
+        .btn-custom {
+            width: 100%;
+            padding: 12px;
+            background: #0d6efd;
+            color: white;
+            border-radius: 10px;
+            border: none;
+            font-size: 17px;
+            font-weight: 600;
+            transition: .25s;
+        }
+
+        .btn-custom:hover {
+            background: #0b57d0;
+        }
+
+        .section-title {
+            margin-top: 25px;
+            font-weight: 700;
+            font-size: 17px;
+            color: #444;
+            border-left: 4px solid #0d6efd;
+            padding-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="form-container">
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+
+    <!-- Left Logo -->
+    <img src="image/Pic1.jpg" alt="Left Logo" class="logo-img">
+
+    <!-- Center Title -->
+    <h2 class="title text-center flex-grow-1 m-0">
+        Punjab Highway Patrol <br> Leave Form
+    </h2>
+
+    <!-- Right Logo -->
+    <img src="image/Pic1.jpg" alt="Right Logo" class="logo-img">
+
+</div>
+<div id="successMessage" class="alert alert-success mt-3" style="display:none;">
+    Form submitted successfully!
+</div>
+
+    <form id="leaveForm">
+
+        <!-- <div class="section-title">Location</div> -->
+
+        <!-- Region -->
+        <label class="form-label mt-3">Region</label>
+        <select name="region" id="region" class="form-select" required>
+            <option value="" disabled selected>Select Region</option>
+            <option value="LHR">LHR</option>
+            <option value="GRW">GRW</option>
+            <option value="FSD">FSD</option>
+            <option value="SGD">SGD</option>
+            <option value="RWP">RWP</option>
+            <option value="SWL">SWL</option>
+            <option value="MLN">MLN</option>
+            <option value="BWP">BWP</option>
+            <option value="DGK">DGK</option>
+        </select>
+
+        <!-- District -->
+        <label class="form-label mt-3">District</label>
+        <select name="district" id="district" class="form-select" required>
+            <option value="">Select District</option>
+        </select>
+
+        <!-- Post Name -->
+        <label class="form-label mt-3">Post</label>
+        <select id="post" name="post" class="form-select" required>
+            <option value="">Select Post</option>
+        </select>
+
+        <div class="section-title">Personal Details</div>
+
+        <!-- Official Name -->
+        <label class="form-label mt-3">Official Name</label>
+        <input type="text" name="official_name" class="form-control" required>
+
+        <!-- Rank -->
+        <label class="form-label mt-3">Rank</label>
+        <select name="rank" class="form-select" required>
+            <option value="" disabled selected>Select Rank</option>
+            <option value="SI">SI</option>
+            <option value="ASI">ASI</option>
+            <option value="T-ASI">T/ASI</option>
+            <option value="Head Constable">Head Constable</option>
+            <option value="Constable">Constable</option>
+            <option value="Driver Constable">Driver Constable</option>
+            <option value="Driver Head Constable">Driver Head Constable</option>
+            <option value="Lady Constable">Lady Constable</option>
+            <option value="Lady Head Constable">Lady Head Constable</option>
+            <option value="Recrute Constable">Recrute Constable</option>
+            <option value="Wireless Operater">Wireless Operater</option>
+            <option value="Cook">Cook</option>
+            <option value="S/Worker">S/Worker</option>
+        </select>
+
+        <!-- Belt No -->
+        <label class="form-label mt-3">Belt #</label>
+        <input type="NUMBER" name="belt_no" class="form-control" required>
+
+
+        <div class="section-title">Leave Details</div>
+
+        <!-- Leave Category -->
+        <label class="form-label mt-3">Category of Leave</label>
+        <select name="leave_category" id="leave_category" class="form-select" required>
+            <option value="" disabled selected>Select Leave Type</option>
+            <option value="CL">Casual Leave</option>
+            <option value="Short Leave">Short Leave</option>
+            <option value="Medical">Medical Leave</option>
+            <option value="Earned">Earned Leave</option>
+            <option value="Paternity">Paternity Leave</option>
+            <option value="Maternity">Maternity Leave</option>
+        </select>
+
+        <!-- Rapt No -->
+        <label class="form-label mt-3">Rapt #</label>
+        <input type="text" name="rapt_no" class="form-control" required>
+
+        <!-- Date -->
+        <label class="form-label mt-3">Date</label>
+        <input type="date" name="leave_date" class="form-control" required>
+
+        <!-- Time -->
+        <label class="form-label mt-3">Time</label>
+        <input type="time" name="leave_time" class="form-control" required>
+
+        <!-- Leave Duration -->
+        <label class="form-label mt-3" id="durationLabel">Leave Duration (Days)</label>
+        <input type="number" name="leave_duration" id="leave_duration" class="form-control" required placeholder="Enter duration in days">
+
+        <!-- Leave Authorized -->
+        <label class="form-label mt-3">Leave Authorized By</label>
+        <select name="leave_authorized" class="form-select" required>
+            <option value="" disabled selected>Select officer</option>
+            <option value="AddlIG">Addl. IG</option>
+            <option value="DIG">DIG</option>
+            <option value="SPHQ">SP/HQ</option>
+            <option value="RO">RO</option>
+            <option value="DO">DO</option>
+            <option value="InchargePost">Incharge Post</option>
+        </select>
+
+        <button type="submit" class="btn-custom mt-4">Submit</button>
+
+    </form>
+</div>
+
+<!-- District Loader -->
+<script>
+const districtData = {
+        "LHR": [ "SKP", "NNK", "LHR", "KSR"],
+        "RWP": [ "ATK", "RWP", "CKL", "JLM"],
+        "FSD": [ "FSD", "CNT", "JNG", "TTS"],
+        "DGK": [ "DGK", "LYA", "MGR", "RJP"],
+        "GRW": [ "GRT", "MBD", "HFZ", "GRW", "SKT", "NRW"],
+        "BWP": [ "BWP", "RYK", "BWN"],
+        "SGD": [ "KSB", "MWL", "BKR", "SGD"],
+        "MLN": [ "MLN", "KWL", "LDR", "VHR"],
+        "SWL": ["OKR","PKP","SWL"]
+};
+
+document.getElementById('region').addEventListener('change', function () {
+    const region = this.value;
+    const districtSelect = document.getElementById('district');
+    districtSelect.innerHTML = '<option value="">Select District</option>';
+
+    if (districtData[region]) {
+        districtData[region].forEach(d => {
+            const opt = document.createElement('option');
+            opt.value = d;
+            opt.textContent = d;
+            districtSelect.appendChild(opt);
+        });
+    }
+});
+
+// Example Post data for each district
+const postData = {
+        "GRT": [ "HEAD JAGGU", "PORAN", "SUKH CHANA", "SAROKI", "KOTLA", "FATEH PUR ", "MALIK PUR", "BHAGOWAL", "GORALI"],
+        "MBD": [ "CHINGUS", "MOJIANWALA", "SAHI MORR", "KADHAR", "NAWAN LOK", "HEAD FAQIRIAN"],
+        "HFZ": [ "THADDA BHATTIAN", "PINDI BHATTIAN", "PURANYKI", "SANDHWAN TARRAR", "PULL JHURRIAN", "IQBAL NAGAR"],
+        "SKT": [ "SAHUWALA", "KHAMBRANWALA", "KHOE STOP", "BASSIWALA", "SEOKEY", "AKBAR CHOWK", "JAMKEY CHEEMA", "GLOTIAN MORR"],
+        "GRW": [ "SOHDRA", "UGGU CHAK", "NANDI PUR", "CHICHAR WALI", "FEROZWALA", "PIPLIWALA", "GHUMMAN WALA", "ARTALI VIRKAN", "AHMED PUR VIRKAN", "KALASKAY", "BUCHA CHATTA"],
+        "NRW": [ "QASIM PURA", "MADHU KAHLWAN", "ADDA BASTAN", "PULL MANGA"],
+        "BWP": [ "RAMAN", "PUL BALOUCHAN", "KHAIRPUR DAHA", "TAHIR WALI", "JABBAR SHAHEED", "TAIL WALA", "KUD WALA", "82 MORR", "MALSI LINK KHAIRPUR", "PULL PHATIAN WALI", "LAL SOHANRA", "JHANGI WALA", "FATTO WALI", "69 SOLING", "ABBASI MORE", "FARHAN SHAHEED (CHAK 23 DNB)", "BASTI MALKANI"],
+        "RYK": [ "MUHAMMAD PUR LAMMA", "LUNDA PATHAK", "PULL SMOOKA", "THULL HAMZA", "MAQBOOL MORR", "MANTHAR TOWN", "PULL DAGA", "NAWAN KOTT", "KALAYWALI", "BAUDIPUR MACHAIN", "173/P", "PUL QADIR WALI", "GHULAM MAHUDIN SHAHEED.", "DINO SHAH", "GARHI IKHTYAR KHAN", "TAHLI MORR", "FAZAL ABAD", "CHOWK METLA", "CHAK NO. 88/A", "MOUZA BHARA"],
+        "BWN": [ "BUXIN KHAN", "SHAHEED CHOWK", "138/6-R DHARI", "BARIKA", "ADDA LATIF ABAD", "SUNNATIKA MORR", "PIR SIKANDAR", "LOHARKA", "ADDA PUL GAGIANI", "CHAK 117/M.", "SAHI WALA", "206 MURAD", "DHAK PATTAN", "SAHOOKA PATTAN", "340/HR MAROT"],
+        "KSB": [ "RIVER BRIDGE JEHLUM", "KHALIQABAD", "BANDIAL", "KALWAL", "PAIL CHOWK", "MANGWAL", "JABBA", "GIROT CHOWK"],
+        "MWL": [ "DARA TANG", "CHICHALI", "TARI KHEL", "MUSLANWALA", "FAKHARABAD", "NANGNI MORR", "KUNDIAN MORR", "HAFIZWALA", "ANWAR CHOWK", "KATCHA GUJRAT", "CHUGHLAN MORR", "YARU KHEL", "KUNDAL"],
+        "BKR": [ "FAZIL", "ASIF PULL", "M YARWALA", "KOTLAJAM", "ALI KHEL", "QURESHIANWALA", "KHASNAR", "BEHAL", "PUNJGRAIN", "SHER GARH", "KATH MOOR", "DIRKHANWALA"],
+        "SGD": [ "SALEEM SHAHEED", "CHAK JODH", "IRFAN SHAHEED", "SHAHEENABAD", "107/NB", "CHAK 93/NB", "CHAK 67/NB", "SAKESAR", "CHAK 4/SB", "CHAK SAIDA", "AHSAN SHAHEED", "JAHANIA SHAH", "HEAD M.ABAD", "BIRBAL CHOWK.", "CHAK 27/NB", "QASIMABAD", "CHAK 40/NB","KOTHIAN AMEER CHAND"],
+        "MLN": [ "MAKHDOOM RASHEED", "BASTI MALOOK", "SIKANDARABAD", "SHER SHAH", "SAHI CHAWAN", "GUJJ MORR", "ALI PUR MORR", "KARMON WALI", "GANWAIN KOTHI", "BUA PUR"],
+        "KWL": [ "PERWAIZ WALA", "KOHIWALA", "PULL BAGAR", "137/16-L", "73/10-R", "8A/8-R", "88/15-L", "NAROOL", "KUND SARGANA", "134/10-R"],
+        "SWL": [ "34/EB", "64/4R", "SARWER CHOWK", "95/6R", "92/9L", "45/5L", "CHANDNI CHOWK", "HASHAM CHAKAR", "69.A/12L KAMAND", "KOTLA ADEEB SHAHEED", "88/12L OKANWALA"],
+        "PKP": [ "SHAMSABAD", "JAMAL CHOWK", "PULL JALAB", "163/EB", "MARLAY CHOWK", "KARMANWALA", "DHOLA BAILEE BAND", "SUSSAL", "GANJ E SHAKER"],
+        "LDR": [ "366/WB", "QUTB PUR", "RUKAN PUR", "SHARAK WAH", "ANAYAT ALI", "NOORI LAAL", "PULL SARLA", "AHMAD ABAD"],
+        "VHR": [ "METLA CHOWK ", "PAKHI MORE", "MANA MORE", "KACHI PAKKI", "RATTA TIBBA", "DO KOTA", "62/WB", "86/WB", "100/EB", "SORU MORE"],
+        "SKP": [ "KHANPUR", "HERDEV", "SAIKHUM", "SAOMORIA", "FAROOQABAD", "BHIKHI", "KALASHAHKAKU", "BHAGODIAL", "KAKKARGILL"],
+        "NNK": [ "ALIABAD", "JAAT NAGAR", "MALIKPUR"],
+        "LHR": [ "JIA BAGGA", "MANGA MANDI", "WAHGRAIN"],
+        "KSR": [ "NOOR PUR", "KOREY SIAL", "BHEO ASAL", "BHEEM K", "HAROON UR RASHEED", "MALIK MEHBOOB", "KARANI WALA", "SABIR SHAHEED", "CHAK DEDA", "MUHAMMAD MALAK"],
+        "OKR": [ "48/2.L", "48/3.R", "SUKHPUR", "QILA SONDA SING", "MIRAN SHAH", "BHUMAN SHAH", "HASAN GELAN", "BONGA SALEH", "KHOKHAR KOTHI"],
+        "ATK": [ "KHUSHALGAR", "MATHIAL", "DHURNAL", "HATTAR", "AKHORI", "SHADI KHAN", "KOTKAY"],
+        "RWP": [ "SIGN MOR", "KATHAR", "22 MEEL", "BHALOTMOR", "BEOR", "SHAH KHAKI", "CHOKPINDORI", "GHOSIA CHOWK", "Q. A COLONY", "GHEELAKALAN", "BEHRIA TOWN", "THAKRA MOR", "TAHLIMOR", "SHAH DI LAS"],
+        "CKL": [ "PARHAL", "DHOKE PATHAN", "BHOUN", "DALELPUR", "MULHAL MUGHLAN"],
+        "JLM": [ "MISSA KASWAL", "CHAK MEHUN", "CHAK AKKA", "MISRI MORE", "LILLA MORE"],
+        "FSD": [ "KAMALPUR", "AMINPUR BYPASS", "PAINSRA", "ROSHEN WALI JHAL", "JALLAH CHOWK", "JASUANA BUNGALOW", "BUCHAKI", "ALIPUR BANGLOW", "ASGHRABAD", "PULL PROPIAN", "SENSRA", "SAHINWALA", "VAC KHURRANWALA", "MAKUANA", "96 GB", "KHIDERWALA", "PULL KAHANA", "BURREWAL", "JHAMRA", "KANJWANI BUNGALOW", "KANIAN BUNGALOW", "KHAI BUNGALOW"],
+        "CNT": [ "JHOK MORR", "TAHIR ABAD", "CHAK BAHADAR", "GULSHAN RAZA"],
+        "JNG": [ "MALOANA MORR", "PUL ASHABA", "BANGLA NAUL WALA", "CHIMRANWALI", "KHEWA", "LANG SHUMALI", "MARRI SHAH SAKHIRA", "DALL MORR", "HAVELI BAHADAR SHAH", "DURRI GONDAL", "PIR ABDUR REHMAN", "RATTA MATTA", "DUBBA PUL", "KHUMANAWALA", "KURRIANWALA"],
+        "TTS": [ "SAMUNDRI ROAD RAJANA", "CHAK NO.312/GB", "CHAK NO.728/GB", "CHAK NO.279/JB", "CHAK NO.773/GB", "CHAK NO.419/JB", "CHAK NO.430/JB", "CHAK NO.284/JB", "CHAK NO.390/JB", "MULFATYANA"],
+        "DGK": [ "RIND ADA", "TRIMIN", "KOT MOR(same location)", "BOHAR(same loaction)", "SHADAN LOUND", "TOMI MOR", "SAKHI SARWAR", "CHOTI BALA", "ADA HAIDERABAD", "MANA BANGLA"],
+        "LYA": [ "LADHANA MOR", "RAFIQ ABAD", "KAPOORI", "NAWAN KOT", "GHAZI GHAT", "QADIRABAD", "SHADAD KOT", "KOT SULTAN", "PEER JAGO", "BASTI KOTLA", "MAIRA", "JALLI WALI", "PULL BINDRA", "JAGMAL WALA"],
+        "MGR": [ "HEAD BAKAINI", "HAMZAYWALI", "HEAD PUNJNAD", "KHANDER MERANI", "MIR HAJI", "KHANPUR BUGA SHER", "GHAZI GHAT", "HEAD TOUNSA", "GABER AREIN", "RIAZABAD", "H.M.WALA", "LANGER WAH", "JAWANA BANGLA"],
+        "RJP": [ "BANGLA DHENGAN", "BANGLA HIDAYAT", "ROJHAN TOWER", "KHAKHAR MOR (same location )", "SHAHWALI(same location )", "KOTLA ANDROON", "MOSA SHAHEED", "LATEEF SHAHEED", "NWAZ SHAHEED", "TIBBI SOLGI", "MAZHAR SHAHEED"]
+};
+
+document.getElementById('district').addEventListener('change', function() {
+    const district = this.value;
+    const postSelect = document.getElementById('post');
+    
+    postSelect.innerHTML = '<option value="">Select Post</option>'; // Reset
+
+    if(postData[district]) {
+        postData[district].forEach(p => {
+            const opt = document.createElement('option');
+            opt.value = p;
+            opt.textContent = p;
+            postSelect.appendChild(opt);
+        });
+    }
+});
+
+</script>
+
+<!-- Leave Duration Auto Switch -->
+<script>
+document.getElementById('leave_category').addEventListener('change', function () {
+    const selected = this.value;
+    const durationInput = document.getElementById('leave_duration');
+    const durationLabel = document.getElementById('durationLabel');
+
+    if (selected === "Short Leave") {
+        durationLabel.innerText = "Leave Duration (Hours)";
+        durationInput.placeholder = "Enter duration in hours";
+    } else {
+        durationLabel.innerText = "Leave Duration (Days)";
+        durationInput.placeholder = "Enter duration in days";
+    }
+});
+
+const form = document.getElementById('leaveForm');
+const successMessage = document.getElementById('successMessage');
+
+// Check if page was just submitted
+if (localStorage.getItem('formSubmitted') === 'true') {
+    successMessage.style.display = 'block';
+    localStorage.removeItem('formSubmitted'); // clear flag
+}
+
+form.addEventListener('submit', e => {
+    e.preventDefault();
+
+    const submitBtn = form.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.innerText = "Submitting...";
+
+    const formData = new FormData(form);
+    const params = new URLSearchParams(formData);
+
+    fetch('https://script.google.com/macros/s/AKfycbwsKQc-BIN3Vlmo41-TMIBGcIEXE1M_Ax7FIzEo4I7NvDQ_WjfmHAKjUs_4trT4KFxmRg/exec', {
+        method: 'POST',
+        body: params
+    })
+    .then(response => response.text())
+    .then(result => {
+        // Set flag to show message after reload
+        localStorage.setItem('formSubmitted', 'true');
+
+        // Reload page
+        window.location.reload();
+    })
+    .catch(error => {
+        console.error(error);
+        alert('Error submitting form');
+        submitBtn.disabled = false;
+        submitBtn.innerText = "Submit";
+    });
+});
+</script>
+
+</body>
+</html>
