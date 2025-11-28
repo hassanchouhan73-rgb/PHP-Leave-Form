@@ -379,9 +379,58 @@ form.addEventListener('submit', e => {
     });
 });
 </script>
+    <script>
+document.getElementById('leave_category').addEventListener('change', function () {
+    const selected = this.value;
+
+    const durationLabel = document.getElementById('durationLabel');
+    const durationInput = document.getElementById('leave_duration');
+
+    // Leave Authorized By field
+    const leaveAuthorized = document.querySelector('select[name="leave_authorized"]');
+    const leaveAuthorizedLabel = leaveAuthorized.previousElementSibling; // label above it
+
+    if (selected === "Daak") {
+        // Hide Duration
+        durationLabel.style.display = "none";
+        durationInput.style.display = "none";
+
+        // Hide Leave Authorized By
+        leaveAuthorized.style.display = "none";
+        leaveAuthorizedLabel.style.display = "none";
+
+        // Remove required so form can submit
+        durationInput.required = false;
+        leaveAuthorized.required = false;
+
+    } else {
+        // Show Duration
+        durationLabel.style.display = "block";
+        durationInput.style.display = "block";
+
+        // Show Leave Authorized By
+        leaveAuthorized.style.display = "block";
+        leaveAuthorizedLabel.style.display = "block";
+
+        // Add required back
+        durationInput.required = true;
+        leaveAuthorized.required = true;
+
+        // Restore normal label depending on category
+        if (selected === "Short Leave") {
+            durationLabel.innerText = "Leave Duration (Hours)";
+            durationInput.placeholder = "Enter duration in hours";
+        } else {
+            durationLabel.innerText = "Leave Duration (Days)";
+            durationInput.placeholder = "Enter duration in days";
+        }
+    }
+});
+</script>
 
 </body>
 </html>
+
 
 
 
