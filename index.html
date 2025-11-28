@@ -156,7 +156,7 @@
 
         <!-- Official Name -->
         <label class="form-label mt-3">Officer/Official Name</label>
-        <input type="text" name="official_name" class="form-control" required>
+        <input type="text" pattern="[A-Za-z ]+"  name="official_name" class="form-control" required>
 
         <!-- Rank -->
         <label class="form-label mt-3">Rank</label>
@@ -185,20 +185,21 @@
         <div class="section-title">Leave Details</div>
 
         <!-- Leave Category -->
-        <label class="form-label mt-3">Category of Leave</label>
+        <label class="form-label mt-3">Category of Leave/Departure</label>
         <select name="leave_category" id="leave_category" class="form-select" required>
             <option value="" disabled selected>Select Leave Type</option>
             <option value="CL">Casual Leave</option>
-            <option value="Short Leave">Short Leave</option>
+            <option value="Short Leave">Short Leave(Emergency) </option>
             <option value="Medical">Medical Leave</option>
             <option value="Earned">Earned Leave</option>
             <option value="Paternity">Paternity Leave</option>
             <option value="Maternity">Maternity Leave</option>
+            <option value="Daak">Daak</option>
         </select>
 
         <!-- Rapt No -->
         <label class="form-label mt-3">Rapt #</label>
-        <input type="text" name="rapt_no" class="form-control" required>
+        <input type="number" name="rapt_no" class="form-control" required>
 
         <!-- Date -->
         <label class="form-label mt-3">Date</label>
@@ -374,6 +375,7 @@ form.addEventListener('submit', e => {
 
 </body>
 </html>
+
 
 
 
