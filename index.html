@@ -393,7 +393,7 @@ document.getElementById('leave_category').addEventListener('change', function ()
     const leaveAuthorized = document.querySelector('select[name="leave_authorized"]');
     const leaveAuthorizedLabel = leaveAuthorized.previousElementSibling; // label above it
 
-    if (selected === "Daak") {
+    if (selected === "Daak" || selected === "Hospital_Departure") {
         // Hide Duration
         durationLabel.style.display = "none";
         durationInput.style.display = "none";
@@ -433,6 +433,7 @@ document.getElementById('leave_category').addEventListener('change', function ()
 
 </body>
 </html>
+
 
 
 
