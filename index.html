@@ -205,6 +205,7 @@
             <option value="Hospital_Departure">Hospital Departure</option>
             <option value="OSD">OSD</option>
             <option value="Kaar_e_Sarkar">Kaar-e-Sarkar(کارِ سرکار)</option>
+            <option value="Absent_By_Muharrar">Absent By Muharrar</option>
         </select>
 
         <!-- Rapt No -->
@@ -393,7 +394,7 @@ document.getElementById('leave_category').addEventListener('change', function ()
     const leaveAuthorized = document.querySelector('select[name="leave_authorized"]');
     const leaveAuthorizedLabel = leaveAuthorized.previousElementSibling; // label above it
 
-    if (selected === "Daak" || selected === "Hospital_Departure" || selected === "Kaar_e_Sarkar" || selected === "OSD") {
+    if (selected === "Daak" || selected === "Hospital_Departure" || selected === "Kaar_e_Sarkar" || selected === "OSD" || selected === "Absent_By_Muharrar") {
         // Hide Duration
         durationLabel.style.display = "none";
         durationInput.style.display = "none";
@@ -433,6 +434,7 @@ document.getElementById('leave_category').addEventListener('change', function ()
 
 </body>
 </html>
+
 
 
 
